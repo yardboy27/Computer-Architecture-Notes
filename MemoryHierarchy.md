@@ -28,23 +28,27 @@ A **block** is a fixed-size collection of data containing the requested word and
 **Pages** are fixed-size blocks; virtual memory address space is typically broken up into pages. At any time, each page resides either in main memory or on disk. When the processor references an item within a page that is not present in the cache or main memory, a palt occurs, and the entire page is moved from the disk to main memory. Page faults take a long time, so they are typically handled in software and the processor is not stalled. 
 
 ### CPU Execution Time Formula
-With our knowledge of the cache, and the existence of memory stall cycles, we can edit our CPU execution time formula to the following:
+With our knowledge of the cache and the existence of memory stall cycles, we can modify our CPU execution time formula as follows:
+
 \[
-\text{CPU execution time} = (\text{CPU clock cycles} + \text{Memory stall cycles} \times \text{Clock cycle time}
+\text{CPU execution time} = (\text{CPU clock cycles} + \text{Memory stall cycles}) \times \text{Clock cycle time}
 \]
 
+---
+
 ### Memory Stall Cycles Equation
-This formula is simplified, as we combine the reads and writes and find the average miss rate and miss penalty for reads and writes.
+This formula is simplified by combining reads and writes and using the average miss rate and miss penalty for both.
+
 \[
 \text{Memory stall cycles} = \text{Number of misses} \times \text{Miss penalty}
 \]
 
 \[
-\text{Memory stall cycles} = \text{IC} \times \frac{Misses}{Instruction} \times \text{Miss penalty}
+\text{Memory stall cycles} = \text{IC} \times \frac{\text{Misses}}{\text{Instruction}} \times \text{Miss penalty}
 \]
 
 \[
-\text{Memory stall cycles} = \text{IC} \times \frac{Memory accesses}{Instruction} \times \text{Miss rate} \times \text{Miss penalty}
+\text{Memory stall cycles} = \text{IC} \times \frac{\text{Memory accesses}}{\text{Instruction}} \times \text{Miss rate} \times \text{Miss penalty}
 \]
 
 ### Memory Stall Cycles Equation (unsimplified)
